@@ -1,4 +1,23 @@
 <div class="card">
-  <h2>Card Component</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, quidem!</p>
+  <h2 [ngStyle]="{
+
+  }">{{ title }}</h2>
+  <p>{{ text }}</p>
+
+  <div class="buttons">
+    <button (click)="changeTitle()">Change title</button>
+    <button (click)="title = 'Inline title'">Change title inline</button>
+  </div>
+
+<!--  <div>-->
+<!--    <input type="text"-->
+<!--           #myInput-->
+<!--           (input)="inputHandler(myInput.value)"-->
+<!--           [value]="title" />-->
+<!--  </div>-->
+  <div>
+    <input type="text"
+           [(ngModel)]="title"
+           (ngModelChange)="changeHandler()">
+  </div>
 </div>
