@@ -1,4 +1,5 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
+import {ICard} from "../app.component";
 
 @Component({
   selector: 'app-card',
@@ -6,13 +7,23 @@ import {Component, OnInit} from "@angular/core";
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
+  @Input() card: ICard = {
+    title: 'Default title',
+    text: 'Default text'
+  }
+
+  @Input() index: Number = 0
+
   title: string = 'My Card Title'
   text: string = 'My Sample Text'
+  textColor: string = ''
+
+  cardDate: Date = new Date()
 
   ngOnInit(): void { }
 
   changeTitle() {
-    this.title = 'Title has been changed'
+    this.card.title = 'Title has been changed'
   }
 
   inputHandler(value: any) {
